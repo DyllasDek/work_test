@@ -32,5 +32,37 @@ long long task2(long long n){
   return sum;
 }
 
+// https://projecteuler.net/problem=4
+/*
+Our output between 100 and 999. Palindrome will be between 10000 and 998001.
+As we looking for largest one, we assume that our N^2 palindrome will be 6 digits.
+So we have:
+abccba = 100000a + 10000b + 1000c + 100c + 10b + a =
+= 100001a + 10010b + 1100c =
+= 11 * (9091a + 910b + 100c)
+
+Now we are looking such X,Y that:
+X * Y == 11 * (9091a + 910b + 100c) && X*Y <= 999^2
+*/
+bool isPal(int x) {
+    string s = to_string(x);
+    return equal(s.begin(), s.begin() + s.size()/2, s.rbegin());
+}
+
+int task3(){
+    int ans = 0;
+    for (int X = 990; X >= 100; X-=11){
+        for (int Y = 999; Y >= 100; Y--){
+            if (X*Y > ans && isPal(X*Y)){ 
+                ans = X*Y;
+                break;
+            } else if (X*Y < ans){
+                break;
+            }
+        }
+    }
+    return ans;
+}
+
 
 int main() {}
