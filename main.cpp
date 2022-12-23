@@ -12,4 +12,25 @@ int task1() {
   return 0.5 * (3 * th * (th + 1) + 5 * fi * (fi + 1) - 15 * fif * (fif + 1));
 }
 
+ 
+// https://projecteuler.net/problem=2
+// Solved without memorizing all the Fibonacci numbers (without DP). The time complexity limit is O(n)
+long long task2(long long n){
+  if (n < 2) return 0;
+  long long fib1 = 1;
+  long long fib2 = 1;
+  long long fib3 = 2;
+  // as we assume that first 2 elements are 1
+  long long sum = -1;
+  while(fib1 <= n){
+    sum += fib1 + fib2;
+    
+    fib1 = fib2 + fib3;
+    fib2 = fib1 + fib3;
+    fib2 = fib1 + fib2;
+  }
+  return sum;
+}
+
+
 int main() {}
