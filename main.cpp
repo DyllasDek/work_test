@@ -132,7 +132,27 @@ long long task7(){
           }
       }
   }
+  return sum;
 }
 
+// https://projecteuler.net/problem=14
+long long chain(long long x){
+  for (long long i = 1; x > 1; i++){
+    if (x%2 == 0) x/=2;
+    else x = 3*x + 1;
+  }
+}
+
+long long task8(){
+  long long max_leng = 0, ans = 0;
+  for (long long i = 1; i < 1e6) {
+    long long temp = chain(i);
+    if (temp > max_leng){
+      max_leng = temp;
+      ans = i;
+    }
+  }
+  return ans;
+}
 
 int main() {}
