@@ -64,5 +64,24 @@ int task3(){
     return ans;
 }
 
+// https://projecteuler.net/problem=5
+// The numbers 11-20 are divisible by the numbers 1-10, so we can check only first gap.
+long long task4(){
+  int ans = 2520;
+  bool found = false;
+  while(!found){
+    ans += 2520;
+    bool checked = true;
+    for (int j = 11; j < 21; j++){
+      if (ans % j !=  0){
+        checked = false;
+        break;
+      }
+    }
+    if (checked) found = true;
+  }
+
+  return ans;
+}
 
 int main() {}
