@@ -116,4 +116,23 @@ long long task6(){
   return i;
 }
 
+// https://projecteuler.net/problem=10
+// The best solution would be the sieve of Eratosthenes
+long long task7(){
+  long long sum = 0;
+  vector<int> prime(2e6 + 1, true);
+  prime[0] = false;
+  prime[1] = false;
+
+  for (int i = 2; i < prime.size(); i++) {
+      if (prime[i] && i * i < prime.size()) {
+        sum += i;
+          for (int j = i * i; j < prime.size(); j += i) {
+              prime[j] = false;
+          }
+      }
+  }
+}
+
+
 int main() {}
