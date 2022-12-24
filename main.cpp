@@ -155,4 +155,18 @@ long long task8(){
   return ans;
 }
 
+// https://projecteuler.net/problem=15
+// Binomial coefficient (2n,n)
+long long task9(){
+  long long c = 1
+  for (int i = 1; i <= n; i++)
+    c = c * (n + i) / i;
+  return c;
+}
+// https://projecteuler.net/problem=20
+// Task 10: python brute force solution, why not?
+//
+// import math
+// print(sum(map(int, str(math.factorial(100)))))
+
 int main() {}
