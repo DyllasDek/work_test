@@ -84,4 +84,36 @@ long long task4(){
   return ans;
 }
 
+// https://projecteuler.net/problem=6
+// Sum of square is 1^2 + 2^2 + ... + n^2
+// Same as 1/6 * n * (n+1) * (2n+1)
+//
+// Square of sum is (1 + 2 + ... + n)^2
+// Same as 1/4 * n^2 * (n+1)^2
+//
+// Diff will be:
+// 1/12 * n * (n + 1) * (3*n^2 - n - 2)
+// task5(100)
+long long task5(long long n){
+  return n * (n+1) * (3*n*n - n - 2) / 12;
+}
+
+//https://projecteuler.net/problem=7
+long long task6(){
+  int counter = 6;
+  long long i = 13;
+  while(counter < 10001){
+    i++;
+    bool prime = 1;
+    for (long long j = 2; j*j <= i; j++){
+      if (i % j == 0){
+        prime = 0;
+        break;
+      }
+    }
+    counter += prime;
+  }
+  return i;
+}
+
 int main() {}
